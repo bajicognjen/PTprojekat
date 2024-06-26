@@ -1,14 +1,14 @@
 // src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePage from './HomePage';
-import TrainerProfile from './TrainerProfile';
-import Booking from './Booking';
-import TrainingPlans from './TrainingPlans';
-import Blog from './Blog';
-import BlogPost from './BlogPost'; 
-import OnlineTraining from './OnlineTraining';
-import Contact from './Contact';
+import HomePage from './components/HomePage.jsx';
+import TrainerProfile from './components/TrainerProfile.jsx';
+import Booking from './components/Booking.jsx';
+import TrainingPlans from './components/TrainingPlans.jsx';
+import Blog from './components/Blog.jsx';
+import BlogPost from './components/BlogPost.jsx'; 
+import OnlineTraining from './components/OnlineTraining.jsx';
+import Contact from './components/Contact.jsx';
 
 function App() {
   return (

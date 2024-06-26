@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from './Navbar';
-import './index.css';
+import Navbar from './Navbar.jsx';
+import '../index.css';
 
 const Blog = () => {
   const blogPosts = [

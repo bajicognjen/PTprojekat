@@ -1,0 +1,2 @@
+milosostojic;password;Milos;Ostojic;milosostojic@gmail.com;MALE;1997-02-08;TRAINER
+markomarkovic;password;Marko;Markovic;markomarkovic@gmail.com;MALE;2002-02-08;CLIENT

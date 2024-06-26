@@ -1,7 +1,7 @@
 // src/TrainingPlans.jsx
 import React from 'react';
-import Navbar from './Navbar';
-import './index.css';
+import Navbar from './Navbar.jsx';
+import '../index.css';
 
 const TrainingPlans = () => {
   return (

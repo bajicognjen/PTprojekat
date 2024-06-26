@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import Navbar from './Navbar';
-import './index.css';
+import Navbar from './Navbar.jsx';
+import '../index.css';
 
 const BlogPost = () => {
   const { postId } = useParams();
