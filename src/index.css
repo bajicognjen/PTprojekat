@@ -80,3 +80,53 @@ a:hover {
 .link:hover {
   background-color: var(--primary-color);
 }
+
+/* Stil za navbar */
+.navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .logo img {
+  width: 50px; /* Prilagodi veličinu logotipa po potrebi */
+  margin-right: 10px;
+}
+
+.navbar .logo span {
+  font-size: 1.5rem; /* Prilagodi veličinu teksta po potrebi */
+}
+
+.navbar ul {
+  display: flex; /* Podešavanje da se stavke liste prikažu u jednom redu */
+  list-style-type: none; /* Uklanjanje tačkastog obeležja */
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  margin-right: 20px; /* Razmak između stavki u navbaru */
+}
+
+.navbar li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 10px;
+}
+
+.navbar li a:hover {
+  text-decoration: underline; /* Podvlačenje linka prilikom hovera */
+}
+

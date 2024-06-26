@@ -1,8 +1,8 @@
-// src/HomePage.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import './index.css';
+import logo from './assets/logo.jpeg';
 
 const HomePage = () => {
   return (
@@ -32,8 +32,8 @@ const HomePage = () => {
           <h2>Latest Blog Posts</h2>
           <ul>
             <li><Link to="/blog/1" className="link">5 Tips for Staying Motivated</Link></li>
-            <li><Link to="/blog/post2" className="link">How to Start a Healthy Diet</Link></li>
-            <li><Link to="/blog/post3" className="link">Top 10 Exercises for Beginners</Link></li>
+            <li><Link to="/blog/2" className="link">How to Start a Healthy Diet</Link></li>
+            <li><Link to="/blog/3" className="link">Top 10 Exercises for Beginners</Link></li>
           </ul>
           <Link to="/blog" className="link">Read more</Link>
         </section>
