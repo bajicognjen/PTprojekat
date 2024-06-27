@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Navbar from './Navbar.jsx';
 import '../index.css';
 import logo from '../assets/logo.jpeg';
@@ -16,7 +15,7 @@ const HomePage = ({ currentUser }) => {
         <section className="section about">
           <h2>About the Trainer</h2>
           <p>Our personal trainer has over 10 years of experience in helping people achieve their fitness goals. Certified and highly recommended.</p>
-          <Link to="/trainer-profile" className="link">Learn more</Link>
+          <a href="/trainer-profile" className="link">Learn more</a>
         </section>
         <section className="section services">
           <h2>Services Offered</h2>
@@ -26,16 +25,16 @@ const HomePage = ({ currentUser }) => {
             <li>Nutrition Planning</li>
             <li>Online Training</li>
           </ul>
-          <Link to="/booking" className="link">Book a session</Link>
+          <a href="/booking" className="link">Book a session</a>
         </section>
         <section className="section blog">
           <h2>Latest Blog Posts</h2>
           <ul>
-            <li><Link to="/blog/1" className="link">5 Tips for Staying Motivated</Link></li>
-            <li><Link to="/blog/2" className="link">How to Start a Healthy Diet</Link></li>
-            <li><Link to="/blog/3" className="link">Top 10 Exercises for Beginners</Link></li>
+            <li>5 Tips for Staying Motivated</li>
+            <li>How to Start a Healthy Diet</li>
+            <li>Top 10 Exercises for Beginners</li>
           </ul>
-          <Link to="/blog" className="link">Read more</Link>
+          <a href="/blog" className="link">Read more</a>
         </section>
         <footer className="footer">
           <p>Milos Ostojic 2024 all rights reserved.®</p>

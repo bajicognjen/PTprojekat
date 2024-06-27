@@ -5,6 +5,7 @@ import java.util.Collection;
 import javax.annotation.PostConstruct;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -62,6 +63,7 @@ public class BlogService {
 
 	@POST
 	@Path("/add")
+    @Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response addBlog(Blog blog) {        
 		User user = (User) request.getSession().getAttribute("user");

@@ -15,7 +15,7 @@ const SignIn = () => {
   const [email, setEmail] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [usernameError, setUsernameError] = useState('');
-  const navigate = useNavigate(); // Hook for navigation
+  const navigate = useNavigate(); 
 
   const passwordRef = useRef(null);
   const confirmPasswordRef = useRef(null);
@@ -23,7 +23,7 @@ const SignIn = () => {
   const submitRegistration = async (e) => {
     e.preventDefault();
 
-    // Check if passwords match
+    
     if (password !== confirmPassword) {
       setErrorMessage('Passwords do not match');
       return;

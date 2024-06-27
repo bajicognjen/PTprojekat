@@ -7,7 +7,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -70,7 +69,7 @@ public class BlogDAO {
     private void saveBlogs() {
         BufferedWriter out = null;
         try {	
-            File file = new File(contextPath + "/users.txt");
+            File file = new File(contextPath + "/blogs.txt");
             System.out.println("File path saving: " + file.getAbsolutePath());
             out = new BufferedWriter(new FileWriter(file));
             for (Blog blog : blogs.values()) {
@@ -120,6 +119,8 @@ public class BlogDAO {
     	}
     	maxId++;
     	blog.setId(maxId.toString());
+    	blog.setDeleted(false);
+    	blog.setDateOfPublishing(LocalDateTime.now());
     	blogs.put(maxId.toString(), blog);
     	saveBlogs();
     }

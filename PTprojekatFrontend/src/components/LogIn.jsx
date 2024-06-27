@@ -22,7 +22,7 @@ const LogIn = () => {
       if (response.status === 200) {
         setErrorMessage('');
         const currentUser = response.data;
-        navigate('/'); // Redirect to home page after successful login
+        navigate('/');
       }
     } catch (error) {
       if (error.response && error.response.status === 400) {

@@ -21,6 +21,7 @@ const TrainerDashboard = () => {
   return (
     <div>
       <Navbar />
+      <div className="container">
         <header className="header">
           <h1>Trainer Dashboard</h1>
         </header>
@@ -36,6 +37,7 @@ const TrainerDashboard = () => {
             </div>
           ))}
         </div>
+      </div>
     </div>
   );
 };

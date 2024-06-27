@@ -1,7 +1,6 @@
 package beans;
 
 import java.time.LocalDateTime;
-import java.util.Collection;
 
 public class Blog {
 	private String id;

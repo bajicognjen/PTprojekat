@@ -13,6 +13,7 @@ const Blog = () => {
     image: '',
   });
   const [currentUser, setCurrentUser] = useState(null);
+  const [newBlog, setNewBlog] = useState({ title: '', content: '', image: '' });
 
   useEffect(() => {
     const fetchBlogPosts = async () => {
@@ -128,14 +129,32 @@ const Blog = () => {
     }
   };
 
-  const handleAddNewBlog = async () => {
+  const handleAddNewBlog = async (e) => {
+    e.preventDefault();
     try {
-      const newBlog = { title: 'New Blog Title', content: 'Write your content here', image: '' };
-      const response = await axios.post('http://localhost:8080/PTprojekatBackend/rest/blogs', newBlog);
-
+      const response = await axios.post('http://localhost:8080/PTprojekatBackend/rest/blogs/add', newBlog);
       setBlogPosts([...blogPosts, response.data]);
+      setNewBlog({ title: '', content: '', image: '' });
     } catch (error) {
       console.error('Error adding new blog post:', error);
+    }
+  };
+
+  const handleNewBlogChange = (e) => {
+    const { name, value } = e.target;
+    setNewBlog((prevNewBlog) => ({
+      ...prevNewBlog,
+      [name]: value,
+    }));
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setNewBlog((prevNewBlog) => ({
+        ...prevNewBlog,
+        image: file.name,
+      }));
     }
   };
 
@@ -183,7 +202,26 @@ const Blog = () => {
           ))}
           {currentUser && currentUser.role === 'TRAINER' && (
             <div className="add-new-blog">
-              <button onClick={handleAddNewBlog} className="add-blog-button">Add New Blog</button>
+              <h2>Add New Blog Post</h2>
+              <form onSubmit={handleAddNewBlog}>
+                <input
+                  type="text"
+                  name="title"
+                  placeholder="Title"
+                  value={newBlog.title}
+                  onChange={handleNewBlogChange}
+                  required
+                />
+                <textarea
+                  name="content"
+                  placeholder="Content"
+                  value={newBlog.content}
+                  onChange={handleNewBlogChange}
+                  required
+                ></textarea>
+                <input type="file" name="image" onChange={handleImageChange} />
+                <button type="submit" className="add-blog-button">Add New Blog</button>
+              </form>
             </div>
           )}
         </section>
