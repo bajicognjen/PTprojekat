@@ -47,14 +47,9 @@ public class BlogDAO {
                     LocalDateTime dateOfPublishing = LocalDateTime.parse(st.nextToken().trim()); 
                     boolean isDeleted = Boolean.parseBoolean(st.nextToken().trim());
                     
-                    Collection<String> images = new ArrayList<>();
-                    while(st.hasMoreTokens()) {
-                    	String image = st.nextToken().trim();
-                    	if(image != null)
-                    		images.add(image);
-                    }
+                    String image = st.nextToken().trim();
                     
-                    Blog blog = new Blog(id, title, content, images, dateOfPublishing, isDeleted);
+                    Blog blog = new Blog(id, title, content, image, dateOfPublishing, isDeleted);
                     
                     blogs.put(id, blog);
                 }
@@ -101,14 +96,7 @@ public class BlogDAO {
         		blog.getContent() + ";" +
         		blog.getDateOfPublishing() + ";" +
         		blog.isDeleted() + ";" +
-        		imagesToFileFormat(blog.getImages());
-    }
-    
-    private String imagesToFileFormat(Collection<String> images) {
-    	if(images == null || images.isEmpty()) {
-    		return "null";
-    	}
-    	return images.stream().collect(Collectors.joining(","));
+        		blog.getImage();
     }
     
     public Collection<Blog> getAll(){
@@ -143,7 +131,7 @@ public class BlogDAO {
 		} else {
 			b.setTitle(blog.getTitle());
 			b.setContent(blog.getContent());
-			b.setImages(blog.getImages());
+			b.setImage(blog.getImage());
 		}
         saveBlogs();
 	}

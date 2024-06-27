@@ -100,18 +100,5 @@ public class UserService {
         userDao.registerUser(user);
         return Response.status(Response.Status.OK).entity(user).build();
     }
-	
-	
-	@GET
-    @Path("/checkUsername")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response checkUsername(@QueryParam("username") String username) {
-        UserDAO userDao = (UserDAO) ctx.getAttribute("userDAO");
-        User user = userDao.getUser(username);
-        if (user != null) {
-            return Response.status(Response.Status.CONFLICT).entity("Username already exists").build();
-        }
-        return Response.ok().build();
-    }
 
 }

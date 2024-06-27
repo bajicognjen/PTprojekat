@@ -7,19 +7,19 @@ public class Blog {
 	private String id;
 	private String title;
 	private String content;
-	private Collection<String> images;
+	private String image;
 	private LocalDateTime dateOfPublishing;
 	private boolean isDeleted;
 	
 	public Blog() {
 		super();
 	}
-	public Blog(String id, String title, String content, Collection<String> images, LocalDateTime dateOfPublishing, boolean isDeleted) {
+	public Blog(String id, String title, String content, String image, LocalDateTime dateOfPublishing, boolean isDeleted) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.content = content;
-		this.images = images;
+		this.image = image;
 		this.dateOfPublishing = dateOfPublishing;
 		this.isDeleted = isDeleted;
 	}
@@ -41,11 +41,11 @@ public class Blog {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Collection<String> getImages() {
-		return images;
+	public String getImage() {
+		return image;
 	}
-	public void setImages(Collection<String> images) {
-		this.images = images;
+	public void setImage(String image) {
+		this.image = image;
 	}
 	public LocalDateTime getDateOfPublishing() {
 		return dateOfPublishing;

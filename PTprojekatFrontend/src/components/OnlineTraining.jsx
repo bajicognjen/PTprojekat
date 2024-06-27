@@ -23,7 +23,6 @@ const OnlineTraining = () => {
         </section>
         <footer className="footer">
           <p>Milos Ostojic 2024 all rights reserved.®</p>
-          <a href="/contact" className="link">Contact</a>
         </footer>
       </div>
     </div>

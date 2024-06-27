@@ -4,7 +4,7 @@ import Navbar from './Navbar.jsx';
 import '../index.css';
 import logo from '../assets/logo.jpeg';
 
-const HomePage = () => {
+const HomePage = ({ currentUser }) => {
   return (
     <div>
       <Navbar />
@@ -39,7 +39,6 @@ const HomePage = () => {
         </section>
         <footer className="footer">
           <p>Milos Ostojic 2024 all rights reserved.®</p>
-          <Link to="/contact" className="link">Contact</Link>
         </footer>
       </div>
     </div>

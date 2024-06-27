@@ -130,3 +130,69 @@ a:hover {
   text-decoration: underline; /* Podvlačenje linka prilikom hovera */
 }
 
+/*TrainerDasboard*/
+.clients-list {
+  margin-top: 20px;
+}
+
+.client-info {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.client-info h2 {
+  margin-bottom: 5px;
+}
+
+.client-info p {
+  margin-bottom: 3px;
+}
+
+.client-info hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+
+/*Blog*/
+.blog-posts {
+  margin-top: 20px;
+}
+
+.blog-post {
+  margin-bottom: 40px;
+}
+
+.blog-content {
+  margin-top: 20px;
+}
+
+.blog-excerpt {
+  line-height: 1.6;
+}
+
+.read-more-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.read-more-button:hover {
+  background-color: #0056b3;
+}
+
+.blog-image {
+  display: block;
+  padding-top: 20px;
+  max-width: 300px; 
+  max-height: 400px; 
+  display: block; 
+  margin: 0 auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

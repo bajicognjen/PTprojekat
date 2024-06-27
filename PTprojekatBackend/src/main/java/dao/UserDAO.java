@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
+import java.util.stream.Collectors;
 
 import beans.User;
 import enums.Gender;
@@ -141,8 +142,10 @@ public class UserDAO {
     }
 	
 	public Collection<User> getAll() {
-		loadUsers(contextPath);
-		return users.values();
+	    loadUsers(contextPath);
+	    return users.values().stream()
+	                 .filter(user -> user.getRole().equals(Role.CLIENT))
+	                 .collect(Collectors.toList());
 	}
 	
 	
