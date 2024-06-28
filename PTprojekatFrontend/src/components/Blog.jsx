@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from './Navbar.jsx';
-import '../index.css';
+import './Blog.css';
+import deleteIcon from '../assets/delete.png';
+import editIcon from '../assets/edit.png';
 
 const Blog = () => {
   const [blogPosts, setBlogPosts] = useState([]);
@@ -61,8 +63,18 @@ const Blog = () => {
     if (currentUser && currentUser.role === 'TRAINER') {
       return (
         <div className="blog-actions">
-          <button onClick={() => handleEditPost(post)} className="edit-button">Edit</button>
-          <button onClick={() => handleDeletePost(post.id)} className="delete-button">Delete</button>
+          <img 
+            src={editIcon} 
+            alt="Edit" 
+            onClick={() => handleEditPost(post)} 
+            className="edit-icon" 
+          />
+          <img 
+            src={deleteIcon} 
+            alt="Delete" 
+            onClick={() => handleDeletePost(post.id)} 
+            className="delete-icon" 
+          />
         </div>
       );
     }
@@ -133,7 +145,7 @@ const Blog = () => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:8080/PTprojekatBackend/rest/blogs/add', newBlog);
-      setBlogPosts([...blogPosts, response.data]);
+      setBlogPosts([...blogPosts, newBlog]);
       setNewBlog({ title: '', content: '', image: '' });
     } catch (error) {
       console.error('Error adding new blog post:', error);
@@ -161,7 +173,7 @@ const Blog = () => {
   return (
     <div>
       <Navbar />
-      <div className="container">
+      <div className={`container ${currentUser && currentUser.role === 'TRAINER' ? 'trainer-container' : 'client-container'}`}>
         <header className="header">
           <h1>Blog</h1>
           <p>Read our latest articles on fitness, nutrition, and training tips.</p>
@@ -169,35 +181,19 @@ const Blog = () => {
         <section className="section blog-posts">
           {blogPosts.map((post) => (
             <article key={post.id} className="blog-post">
-              {editPostId === post.id ? (
-                <form onSubmit={handleEditFormSubmit} className="edit-form">
-                  <input type="text" name="title" value={editFormData.title} onChange={handleEditFormChange} required />
-                  <textarea name="content" value={editFormData.content} onChange={handleEditFormChange} required />
-                  <input type="text" name="image" value={editFormData.image} onChange={handleEditFormChange} />
-                  <div className="edit-form-buttons">
-                    <button type="submit">Save</button>
-                    <button type="button" onClick={handleCancelEdit}>Cancel</button>
-                  </div>
-                </form>
-              ) : (
-                <>
-                  <h2>{post.title}</h2>
-                  {expandedPostId === post.id ? (
-                    <div>
-                      <div className="blog-content" dangerouslySetInnerHTML={{ __html: post.content }} />
-                      {post.image && (
-                        <img src={`http://localhost:5173/src/assets/${post.image}`} alt={post.image} className="blog-image" />
-                      )}
-                      {renderActionButton(post)}
-                    </div>
-                  ) : (
-                    <p className="blog-excerpt">{post.content.substring(0, 200)}...</p>
+              <h2>{post.title}</h2>
+              {expandedPostId === post.id && (
+                <div>
+                  <div className="blog-content" dangerouslySetInnerHTML={{ __html: post.content }} />
+                  {post.image && (
+                    <img src={`http://localhost:5173/src/assets/${post.image}`} alt={post.image} className="blog-image" />
                   )}
-                  <button className="read-more-button" onClick={() => handleReadMore(post.id)}>
-                    {expandedPostId === post.id ? 'Close' : 'Read More'}
-                  </button>
-                </>
+                  {renderActionButton(post)}
+                </div>
               )}
+              <button className="read-more-button" onClick={() => handleReadMore(post.id)}>
+                {expandedPostId === post.id ? 'Close' : 'Read More'}
+              </button>
             </article>
           ))}
           {currentUser && currentUser.role === 'TRAINER' && (

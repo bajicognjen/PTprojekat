@@ -1,7 +1,6 @@
 import React from 'react';
 import Navbar from './Navbar.jsx';
-import '../index.css';
-import logo from '../assets/logo.jpeg';
+import './HomePage.css';
 
 const HomePage = ({ currentUser }) => {
   return (

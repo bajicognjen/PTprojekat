@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
-import logo from '../assets/logo.jpeg';
-
+import logo from '../assets/logo.png';
+import './Navbar.css';
 const Navbar = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const navigate = useNavigate();
@@ -42,72 +42,72 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <div className="container">
-        <div className="logo">
+      <div className="navbar-container">
+        <div className="navbar-logo">
           <Link to="/">
             <img src={logo} alt="Personal Trainer Website Logo" />
           </Link>
         </div>
-        <ul className="nav-links">
+        <ul className="navbar-menu">
           {currentUser ? (
             <>
               {currentUser.role === 'TRAINER' ? (
                 <>
-                  <li className={`nav-item ${location.pathname === '/trainer-dashboard' ? 'active' : ''}`}>
-                    <Link to="/trainer-dashboard">Trainer Dashboard</Link>
+                  <li className={`navbar-item ${location.pathname === '/trainer-dashboard' ? 'active' : ''}`}>
+                    <Link to="/trainer-dashboard" className="navbar-link">Trainer Dashboard</Link>
                   </li>
-                  <li className={`nav-item ${location.pathname === '/blog' ? 'active' : ''}`}>
-                    <Link to="/blog">Blog</Link>
+                  <li className={`navbar-item ${location.pathname === '/blog' ? 'active' : ''}`}>
+                    <Link to="/blog" className="navbar-link">Blog</Link>
                   </li>
                 </>
               ) : (
                 <>
-                  <li className={`nav-item ${location.pathname === '/' ? 'active' : ''}`}>
-                    <Link to="/">Home</Link>
+                  <li className={`navbar-item ${location.pathname === '/' ? 'active' : ''}`}>
+                    <Link to="/" className="navbar-link">Home</Link>
                   </li>
-                  <li className={`nav-item ${location.pathname === '/training-plans' ? 'active' : ''}`}>
-                    <Link to="/training-plans">Training Plans</Link>
+                  <li className={`navbar-item ${location.pathname === '/training-plans' ? 'active' : ''}`}>
+                    <Link to="/training-plans" className="navbar-link">Training Plans</Link>
                   </li>
-                  <li className={`nav-item ${location.pathname === '/online-training' ? 'active' : ''}`}>
-                    <Link to="/online-training">Online Training</Link>
+                  <li className={`navbar-item ${location.pathname === '/online-training' ? 'active' : ''}`}>
+                    <Link to="/online-training" className="navbar-link">Online Training</Link>
                   </li>
-                  <li className={`nav-item ${location.pathname === '/contact' ? 'active' : ''}`}>
-                    <Link to="/contact">Contact</Link>
+                  <li className={`navbar-item ${location.pathname === '/contact' ? 'active' : ''}`}>
+                    <Link to="/contact" className="navbar-link">Contact</Link>
                   </li>
-                  <li className={`nav-item ${location.pathname === '/trainer-profile' ? 'active' : ''}`}>
-                    <Link to="/trainer-profile">Trainer Profile</Link>
+                  <li className={`navbar-item ${location.pathname === '/trainer-profile' ? 'active' : ''}`}>
+                    <Link to="/trainer-profile" className="navbar-link">Trainer Profile</Link>
                   </li>
-                  <li className={`nav-item ${location.pathname === '/blog' ? 'active' : ''}`}>
-                    <Link to="/blog">Blog</Link>
+                  <li className={`navbar-item ${location.pathname === '/blog' ? 'active' : ''}`}>
+                    <Link to="/blog" className="navbar-link">Blog</Link>
                   </li>
                 </>
               )}
-              <li className="nav-item">
-                <button className="nav-button" onClick={handleLogout}>Logout</button>
+              <li className="navbar-item">
+                <Link onClick={handleLogout} className="navbar-link">Logout</Link>
               </li>
             </>
           ) : (
             <>
-              <li className={`nav-item ${location.pathname === '/' ? 'active' : ''}`}>
-                <Link to="/">Home</Link>
+              <li className={`navbar-item ${location.pathname === '/' ? 'active' : ''}`}>
+                <Link to="/" className="navbar-link">Home</Link>
               </li>
-              <li className={`nav-item ${location.pathname === '/training-plans' ? 'active' : ''}`}>
-                <Link to="/training-plans">Training Plans</Link>
+              <li className={`navbar-item ${location.pathname === '/training-plans' ? 'active' : ''}`}>
+                <Link to="/training-plans" className="navbar-link">Training Plans</Link>
               </li>
-              <li className={`nav-item ${location.pathname === '/online-training' ? 'active' : ''}`}>
-                <Link to="/online-training">Online Training</Link>
+              <li className={`navbar-item ${location.pathname === '/online-training' ? 'active' : ''}`}>
+                <Link to="/online-training" className="navbar-link">Online Training</Link>
               </li>
-              <li className={`nav-item ${location.pathname === '/contact' ? 'active' : ''}`}>
-                <Link to="/contact">Contact</Link>
+              <li className={`navbar-item ${location.pathname === '/contact' ? 'active' : ''}`}>
+                <Link to="/contact" className="navbar-link">Contact</Link>
               </li>
-              <li className={`nav-item ${location.pathname === '/trainer-profile' ? 'active' : ''}`}>
-                <Link to="/trainer-profile">Trainer Profile</Link>
+              <li className={`navbar-item ${location.pathname === '/trainer-profile' ? 'active' : ''}`}>
+                <Link to="/trainer-profile" className="navbar-link">Trainer Profile</Link>
               </li>
-              <li className={`nav-item ${location.pathname === '/blog' ? 'active' : ''}`}>
-                <Link to="/blog">Blog</Link>
+              <li className={`navbar-item ${location.pathname === '/blog' ? 'active' : ''}`}>
+                <Link to="/blog" className="navbar-link">Blog</Link>
               </li>
-              <li className={`nav-item ${location.pathname === '/login' ? 'active' : ''}`}>
-                <Link to="/login">Login</Link>
+              <li className={`navbar-item ${location.pathname === '/login' ? 'active' : ''}`}>
+                <Link to="/login" className="navbar-link">Login</Link>
               </li>
             </>
           )}
