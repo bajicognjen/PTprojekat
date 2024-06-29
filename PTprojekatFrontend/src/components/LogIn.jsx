@@ -22,7 +22,16 @@ const LogIn = () => {
       if (response.status === 200) {
         setErrorMessage('');
         const currentUser = response.data;
-        navigate('/');
+        console.log('Current user:', currentUser);
+
+        // Check user role and navigate accordingly
+        if (currentUser.role === 'TRAINER') {
+          console.log('Navigating to trainer dashboard');
+          navigate('/trainer-dashboard');
+        } else {
+          console.log('Navigating to home page');
+          navigate('/');
+        }
       }
     } catch (error) {
       if (error.response && error.response.status === 400) {

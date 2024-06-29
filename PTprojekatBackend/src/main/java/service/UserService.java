@@ -46,16 +46,24 @@ public class UserService {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response login(User user, @Context HttpServletRequest request) {
-		UserDAO userDao = (UserDAO) ctx.getAttribute("userDAO");
-		User loggedUser = userDao.logInUser(user.getUsername(), user.getPassword());
-		if (loggedUser == null) {
-			return Response.status(400).entity("Invalid username and/or password").build();
-		}
-		request.getSession().setAttribute("user", loggedUser);
-		HttpSession session = request.getSession();
-        System.out.println("Session ID: " + session.getId());
-		return Response.status(200).build();
+	    UserDAO userDao = (UserDAO) ctx.getAttribute("userDAO");
+	    User loggedUser = userDao.logInUser(user.getUsername(), user.getPassword());
+
+	    if (loggedUser == null) {
+	        return Response.status(400).entity("Invalid username and/or password").build();
+	    }
+
+	   
+	    loggedUser.setRole(loggedUser.getRole());
+
+	    request.getSession().setAttribute("user", loggedUser);
+	    HttpSession session = request.getSession();
+	    System.out.println("Session ID: " + session.getId());
+
+	    
+	    return Response.status(200).entity(loggedUser).build();
 	}
+
 	
 	@POST
 	@Path("/logout")

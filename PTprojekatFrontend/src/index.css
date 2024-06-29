@@ -27,40 +27,6 @@ body {
   max-width: 1250px;
 }
 
-.footer {
-  text-align: center;
-  margin-top: 20px;
-  background-color: var(--primary-color);
-  color: #EBEBEB;
-  padding: 20px;
-  border-radius: 8px;
-}
-
-a {
-  color: var(--accent-color);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-.link {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 15px;
-  background-color: var(--secondary-color);
-  color: #fff;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-}
-
-.link:hover {
-  background-color: var(--primary-color);
-}
-
-
-
 /* Header styles */
 .header {
   text-align: center;
@@ -82,15 +48,6 @@ a:hover {
   color: #EBEBEB;
 }
 
-
-
-
-footer {
-  text-align: center;
-  margin-top: 40px;
-}
-
-
 /* Footer styles */
 .footer {
   text-align: center;
@@ -106,31 +63,6 @@ footer {
   color: #ecf0f1;
 }
 
-/*TrainerDasboard*/
-.clients-list {
-  margin-top: 20px;
-}
-
-.client-info {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-.client-info h2 {
-  margin-bottom: 5px;
-}
-
-.client-info p {
-  margin-bottom: 3px;
-}
-
-.client-info hr {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border: 0;
-  border-top: 1px solid #ccc;
-}
 
 
 

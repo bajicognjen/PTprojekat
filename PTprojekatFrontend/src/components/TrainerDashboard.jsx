@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from './Navbar.jsx';
-import '../index.css';
+import './TrainerDashboard.css';
 
 const TrainerDashboard = () => {
   const [clients, setClients] = useState([]);
@@ -18,6 +18,11 @@ const TrainerDashboard = () => {
       });
   }, []);
 
+  const handleAddNote = (clientId, note) => {
+    // Implement adding note functionality
+    console.log(`Adding note for client ${clientId}: ${note}`);
+  };
+
   return (
     <div>
       <Navbar />
@@ -29,10 +34,20 @@ const TrainerDashboard = () => {
         <div className="clients-list">
           {clients.map(client => (
             <div key={client.username} className="client-info">
-              <h2>{client.name} {client.surname}</h2>
-              <p>Email: {client.email}</p>
-              <p>Date of Birth: {client.dateOfBirth}</p>
-              <p>Gender: {client.gender}</p>
+              <div className="client-details">
+                <h2>{client.name} {client.surname}</h2>
+                <p>Email: {client.email}</p>
+                <p>Date of Birth: {client.dateOfBirth}</p>
+                <p>Gender: {client.gender}</p>
+              </div>
+              <div className="notes-container">
+                <textarea
+                  placeholder="Add notes..."
+                  rows="3"
+                  onChange={(e) => handleAddNote(client.id, e.target.value)}
+                ></textarea>
+                <button onClick={() => handleAddNote(client.id, '')}>Save Note</button>
+              </div>
               <hr />
             </div>
           ))}

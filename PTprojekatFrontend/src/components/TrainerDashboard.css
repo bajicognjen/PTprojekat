@@ -1,0 +1,66 @@
+/* TrainerDashboard.css */
+
+.clients-list {
+  margin-top: 20px;
+}
+
+.client-info {
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid var(--primary-color);
+  position: relative;
+}
+
+.client-info h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.client-info p {
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.client-info hr {
+  margin: 10px 0;
+  border: 0;
+  border-top: 1px solid #e0e0e0;
+}
+
+.notes-container {
+  position: absolute;
+  top: 15px; /* Prilagodite vertikalni položaj po potrebi */
+  right: 15px; /* Postavljanje na desnu stranu */
+  width: 450px; /* Širina napomena */
+}
+
+.notes-container textarea {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  resize: vertical;
+  box-sizing: border-box;
+  margin-top: 45px;
+}
+
+.notes-container button {
+  background-color: #bc1414;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+  margin-left: 350px;
+}
+
+.notes-container button:hover {
+  background-color: #ee2f2f;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
