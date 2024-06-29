@@ -18,6 +18,8 @@ const TrainerProfile = () => {
             <h2>About Your Trainer</h2>
             <p>Welcome to the Trainer Profile section. Here you can find all the information about your dedicated personal trainer who will guide you through your fitness journey.</p>
           </div>
+        </section>
+        <section className="section trainer-det">
           <div className="trainer-details">
             <h3>Milos Ostojic</h3>
             <p>

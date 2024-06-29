@@ -1,12 +1,10 @@
-/* src/HomePage.css */
+/* src/TrainingPlans.css */
 
 .section {
   margin-top: 20px;
 }
 
-.about,
-.services,
-.blog {
+.a-plan, .b-plan, .i-plan {
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
@@ -14,39 +12,34 @@
   margin-bottom: 30px;
 }
 
-.section h2 {
+.a-plan h2, .b-plan h2, .i-plan h2 {
   color: #BC1414;
   font-size: 1.8rem;
   margin-bottom: 10px;
 }
 
-.section p {
+.a-plan p, .b-plan p, .i-plan p {
   font-size: 1rem;
   color: #333;
   margin-bottom: 15px;
 }
 
-.section ul {
+.a-plan ul, .b-plan ul, .i-plan ul {
   list-style-type: disc;
   padding-left: 20px;
   margin-bottom: 15px;
 }
 
-.section ul li {
+.a-plan ul li, .b-plan ul li, .i-plan ul li {
   font-size: 1rem;
   color: #333;
   margin-bottom: 5px;
 }
-.section.about {
+.a-plan, .b-plan{
   border-left: 5px solid var(--primary-color);
 }
-
-.section.services {
+.i-plan{
   border-left: 5px solid var(--secondary-color);
-}
-
-.section.blog {
-  border-left: 5px solid var(--accent-color);
 }
 
 .link {

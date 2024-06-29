@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from './Navbar.jsx';
-import '../index.css';
+import './LogIn.css';
 
 const LogIn = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const navigate = useNavigate(); // Hook for navigation
+  const navigate = useNavigate();
 
   const submitLogin = async (e) => {
     e.preventDefault();
@@ -16,7 +16,7 @@ const LogIn = () => {
     try {
       const response = await axios.post('http://localhost:8080/PTprojekatBackend/rest/users/login', {
         username,
-        password
+        password,
       });
 
       if (response.status === 200) {
@@ -42,8 +42,8 @@ const LogIn = () => {
           <h1>Log In</h1>
         </header>
         <section className="section login-form">
-          <form onSubmit={submitLogin} style={{ maxWidth: '600px', margin: '0 auto' }}>
-            <div className="form-group" style={{ marginBottom: '1rem' }}>
+          <form onSubmit={submitLogin}>
+            <div className="form-group">
               <label htmlFor="username">Username</label>
               <input
                 type="text"
@@ -52,10 +52,9 @@ const LogIn = () => {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
-                style={{ width: '100%', padding: '10px', fontSize: '16px' }}
               />
             </div>
-            <div className="form-group" style={{ marginBottom: '1rem' }}>
+            <div className="form-group">
               <label htmlFor="password">Password</label>
               <input
                 type="password"
@@ -64,15 +63,14 @@ const LogIn = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                style={{ width: '100%', padding: '10px', fontSize: '16px' }}
               />
             </div>
-            <button type="submit" className="button" style={{ padding: '10px 20px', fontSize: '16px', cursor: 'pointer' }}>
-              Login
+            <button type="submit" className="button">
+              LogIn
             </button>
           </form>
-          {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-          <p style={{ textAlign: 'center', marginTop: '1rem' }}>
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
+          <p className="sign-up-link">
             Don't have an account? <Link to="/signIn">Sign In</Link>
           </p>
         </section>
