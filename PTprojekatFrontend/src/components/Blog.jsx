@@ -145,7 +145,7 @@ const Blog = () => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:8080/PTprojekatBackend/rest/blogs/add', newBlog);
-      setBlogPosts([...blogPosts, newBlog]);
+      setBlogPosts([...blogPosts, response.data]);
       setNewBlog({ title: '', content: '', image: '' });
     } catch (error) {
       console.error('Error adding new blog post:', error);
@@ -170,6 +170,16 @@ const Blog = () => {
     }
   };
 
+  const handleImageChangeEdit = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setEditFormData((prevBlog) => ({
+        ...prevBlog,
+        image: file.name,
+      }));
+    }
+  };
+
   return (
     <div>
       <Navbar />
@@ -181,19 +191,34 @@ const Blog = () => {
         <section className="section blog-posts">
           {blogPosts.map((post) => (
             <article key={post.id} className="blog-post">
-              <h2>{post.title}</h2>
-              {expandedPostId === post.id && (
-                <div>
-                  <div className="blog-content" dangerouslySetInnerHTML={{ __html: post.content }} />
-                  {post.image && (
-                    <img src={`http://localhost:5173/src/assets/${post.image}`} alt={post.image} className="blog-image" />
+              {editPostId === post.id ? (
+                <form onSubmit={handleEditFormSubmit} className="edit-form">
+                  <h2>Edit Blog Post</h2>
+                  <input type="text" name="title" value={editFormData.title} onChange={handleEditFormChange} required />
+                  <textarea name="content" value={editFormData.content} onChange={handleEditFormChange} required />
+                  <input type="file" name="image" onChange={handleImageChangeEdit} />
+                  <div className="edit-form-buttons">
+                    <button type="submit">Save</button>
+                    <button type="button" onClick={handleCancelEdit}>Cancel</button>
+                  </div>
+                </form>
+              ) : (
+                <>
+                  <h2>{post.title}</h2>
+                  {expandedPostId === post.id && (
+                    <div>
+                      <div className="blog-content" dangerouslySetInnerHTML={{ __html: post.content }} />
+                      {post.image && (
+                        <img src={`http://localhost:5173/src/assets/${post.image}`} alt={post.image} className="blog-image" />
+                      )}
+                      {renderActionButton(post)}
+                    </div>
                   )}
-                  {renderActionButton(post)}
-                </div>
+                  <button className="read-more-button" onClick={() => handleReadMore(post.id)}>
+                    {expandedPostId === post.id ? 'Close' : 'Read More'}
+                  </button>
+                </>
               )}
-              <button className="read-more-button" onClick={() => handleReadMore(post.id)}>
-                {expandedPostId === post.id ? 'Close' : 'Read More'}
-              </button>
             </article>
           ))}
           {currentUser && currentUser.role === 'TRAINER' && (

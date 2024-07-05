@@ -6,6 +6,7 @@
   margin-bottom: 30px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Senka izmedju postova */
+  border-left: 5px solid var(--primary-color);
 }
 
 .blog-post h2 {
@@ -82,6 +83,7 @@
   margin-top: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid var(--secondary-color);
 }
 
 .add-new-blog h2 {
@@ -127,3 +129,53 @@
   outline: none;
   box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.5);
 }
+
+.edit-form {
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.edit-form h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.edit-form input[type="text"],
+.edit-form textarea {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.edit-form input[type="file"] {
+  padding: 8px;
+}
+
+.edit-form button {
+  background-color: #BC1414;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.edit-form button:hover {
+  background-color: #EE2F2F;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.edit-form button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.5);
+}
+
